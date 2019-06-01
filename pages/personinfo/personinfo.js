@@ -27,22 +27,25 @@ Page({
       iseditor: false
     });
   },
+  formReset: function () {
+    console.log('form发生了reset事件')
+  },
   // 保存
-  saveinfo: function (event) {
+  formSubmit: function (e) {
     this.setData({
       iseditor: true
     });
     wx.request({
-      url: "",
+      url: "http://cx5sm9.natappfree.cc/ajhUserinfo/updateAjhUserinfo",
       method: "POST",
-      data: {
+      data: { 
         userName: e.detail.value.userName,
         email: e.detail.value.email,
-        address: e.detail.value.address,
         birthday: e.detail.value.birthday,
+        address: e.detail.value.address,
       },
       header: {
-        "Content-Type": "application/x-www-form-urlencoded"
+        contentType: "application/json"
       },
       success: function (res) {
         console.log(res.data);
@@ -72,25 +75,25 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    wx.request({
-      url: '',
-      data: {
-      },
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-      // header: {}, // 设置请求的 header  
-      header: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res.data)
-        that.setData({
-          userName: res.data.userName,
-          email: res.data.email,
-          address: res.data.address,
-          birthday: res.data.birthday,      
-        })
-      }
-    })
+    // wx.request({
+    //   url: '',
+    //   data: {
+    //   },
+    //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+    //   // header: {}, // 设置请求的 header  
+    //   header: {
+    //     'Content-Type': 'application/json'
+    //   },
+    //   success: function (res) {
+    //     console.log(res.data)
+    //     that.setData({
+    //       userName: res.data.userName,
+    //       email: res.data.email,
+    //       address: res.data.address,
+    //       birthday: res.data.birthday,      
+    //     })
+    //   }
+    // })
   },
 
   /**
