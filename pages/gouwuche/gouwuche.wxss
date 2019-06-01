@@ -1,0 +1,8 @@
+.conta{
+  background-color: #eee;
+  height:100vh;
+  text-align: center;
+}
+text {
+  display:block;
+}

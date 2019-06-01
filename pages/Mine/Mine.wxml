@@ -1,0 +1,39 @@
+<!--pages/Mine/Mine.wxml-->
+<view class="contain">
+        <view class="contain-top">
+              <view class="userinfo">
+                <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+                <block wx:else>
+                  <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+                  <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+                </block>
+              </view>
+              <view class='timeandwnk' >
+                    <view>
+                      <text>VIP</text>
+                      <text>信用分750</text>
+                    </view>
+                    <view></view>
+                    <view>
+                      <text>0</text>
+                      <text>爱机汇币</text>
+                    </view>
+                      <view>
+                        <image src='/image/user_activity_item_content_pointer.png' style='width:100%;height:100% '></image>
+                    </view>  
+              </view>
+      </view>
+      <view class='content-middle'>
+         <block wx:for="{{items}}">
+          <view class='row' bindtap='mineTo' data-index='{{index}}'>
+              <view class='row-header'>
+                <view><image src='{{item.img}}'style="width:100%;height:100%"></image></view>
+                <text>{{item.Text}}</text>
+              </view>
+                <view class='right'>
+                        <image src='/image/user_activity_item_content_pointer.png' style='width:100%;height:100% '></image>
+                 </view>  
+            </view>
+            </block>
+      </view>
+</view>

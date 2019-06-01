@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/loading/loading",
+    "pages/zhuce/zhuce",
+    "pages/readindex/readindex",
+    "pages/booksmanager/booksmanager",
+    "pages/pingjia/pingjia",
+    "pages/inputBookFormation/inputBookFormation",
+    "pages/bookDetail/bookDetail",
+    "pages/readdetail/readdetail",
+    "pages/index/index",
+    "pages/classfydetail/classfydetail",
+    "pages/shopping/shopping",
+    "pages/logs/logs",
+    "pages/gouwuche/gouwuche",
+    "pages/Mine/Mine"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "爱机汇3C交易系统",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "lightgray",
+    "list": [
+      {
+        "pagePath": "pages/readindex/readindex",
+        "text": "热点",
+        "iconPath": "/image/tab_icon1.png",
+        "selectedIconPath": "/image/tab_icon1_active.png"
+      },
+      {
+        "pagePath": "pages/shopping/shopping",
+        "text": "分类",
+        "iconPath": "/image/tab_icon2.png",
+        "selectedIconPath": "/image/tab_icon2_active.png"
+      },
+      {
+        "pagePath": "pages/gouwuche/gouwuche",
+        "text": "购物车",
+        "iconPath": "/image/tab_icon3.png",
+        "selectedIconPath": "/image/tab_icon3_active.png"
+      },
+      {
+        "pagePath": "pages/Mine/Mine",
+        "text": "我的",
+        "iconPath": "/image/tab_icon4.png",
+        "selectedIconPath": "/image/tab_icon4_active.png"
+      }
+    ],
+    "color":"#000",
+    "selectedColor":"#00f"
+  },
+  "sitemapLocation": "sitemap.json"
+}

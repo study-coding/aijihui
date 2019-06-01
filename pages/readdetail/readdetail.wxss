@@ -1,0 +1,67 @@
+/* pages/readdetail/readdetail.wxss */
+@import "/style/iconfont.wxss";
+.content{
+padding: 30rpx;
+ margin-bottom: 100rpx; 
+}
+.content .content-tit{
+    font-size: 50rpx;
+    text-align: justify;
+    font-weight: bold;
+    color: #444444;
+}
+.content .content-author{
+  display: flex;
+  justify-content: space-between;
+  margin: 50rpx 0;
+}
+.content .content-author .content-author-left{
+    display: flex;
+    align-items: center;
+}
+.content .content-author .content-author-left image{
+  width: 70rpx;
+  height: 70rpx;
+  margin-right: 30rpx;
+  border-radius: 50%;
+
+}
+.content .content-author .content-author-left text{
+  font-size: 26rpx;
+  color: #444444;
+  font-weight: bold;
+}
+.content .content-author .content-author-right{
+  width: 120rpx;
+  height: 60rpx;
+  border: 1px solid #ececec;
+  text-align: center;
+  line-height: 60rpx;
+  border-radius: 30rpx;
+  color:#444444; 
+  font-weight: bold;
+}
+.content .content-words{
+    margin: 60rpx 0;
+    line-height: 60rpx;
+    word-break: break-all;
+    color: #626262;
+    text-indent: 2rem;
+}
+.buttom{
+      position: fixed;
+       background: white; 
+      width:100%;
+      height: 100rpx;
+      border-top: 1px solid #eeeeee;
+      bottom: 0px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      
+}
+.buttom view text{
+  font-size: 50rpx;
+  font-weight: bold;
+  color: #545454;
+}

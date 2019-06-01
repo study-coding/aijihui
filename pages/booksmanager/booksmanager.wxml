@@ -1,0 +1,100 @@
+<!--pages/booksmanager/booksmanager.wxml-->
+<view class='top'>
+        <view class=" {{isselected1 ?'selected':''}}" bindtap='onclick1'>
+             <view>
+                所有信息
+             </view>
+             <text>{{deletebooks.length}}
+             </text>
+        </view>
+         <view  class=" {{isselected2 ? 'selected':''}}" bindtap='onclick2'>
+             <view>
+               交易信息
+             </view>
+               <text style='color:orange;border:1rpx solid orange'>{{ scbooksid.length}}
+             </text>
+        </view>
+</view>
+<view class='content'>
+        <view wx:if="{{isselected1}}">
+           <checkbox-group  bindchange="checkboxChange">
+            <view wx:for="{{books}}" class='bookitem'>
+                <view class='bookitem-top'>
+                    
+                      <checkbox class='Checkbox' value='{{item.bookid}}' checked='{{item.gouxuan}}'>{{item.bookname}}</checkbox>
+                     <view class='bookitem-top-right1'>
+                          <view class='bookitem-top-right2'>
+                              <view class='bookitem-top-right-author'>
+                                <text>作者：</text>
+                                <text>{{item.author}}</text>
+                              </view>
+                              <view class='bookitem-top-right-time'>
+                                <text>发布时间：</text>
+                                <text>{{item.date}}</text>
+                              </view>
+                          </view>
+                          <view class='bookitem-top-kai' bindtap='onclickdown' data-key='{{index}}'>
+                                   <image wx:if="{{item.changexia==true}}" src='/image/user_activity_item_content_pointer_down.png'  style='width:100%;height:100%'></image> 
+                                    <image wx:else src='/image/user_activity_item_content_pointer.png'  style='width:100%;height:100%'></image> 
+                          </view> 
+                     </view> 
+                </view>
+                
+                <view class='bookitem-bottom' wx:if="{{item.changexia==true}}">
+                     <view class='booitem-bottom-introduction'>
+                          {{item.introduction}}
+                     </view>
+                     <view class='bookitem-bottom-button'>
+                            <button type='primary'  bindtap='edit' data-book='{{item}}'>编辑</button>
+                          <button type='warn' data-key='{{index}}' bindtap='deleteone'>删除</button>
+                     </view>  
+
+                </view>
+            </view>
+            <view class='piliangdelete' bindtap='piLiangDelete'>
+                  批量删除
+            </view>
+          </checkbox-group>
+        </view>
+        <view wx:if="{{isselected2}}">
+                  <checkbox-group  bindchange="checkboxChange2">
+            <view wx:for="{{scbooks}}" class='bookitem'>
+                <view class='bookitem-top'>
+                    
+                      <checkbox class='Checkbox' value='{{item.bookid}}' checked='{{item.gouxuan}}'>{{item.bookname}}</checkbox>
+                     <view class='bookitem-top-right1'>
+                          <view class='bookitem-top-right2'>
+                              <view class='bookitem-top-right-author'>
+                                <text>作者：</text>
+                                <text>{{item.author}}</text>
+                              </view>
+                              <view class='bookitem-top-right-time'>
+                                <text>发布时间：</text>
+                                <text>{{item.date}}</text>
+                              </view>
+                          </view>
+                          <view class='bookitem-top-kai' bindtap='onclickdown2' data-key='{{index}}'>
+                                   <image wx:if="{{item.changexia==true}}" src='/image/user_activity_item_content_pointer_down.png'  style='width:100%;height:100%'></image> 
+                                    <image wx:else src='/image/user_activity_item_content_pointer.png'  style='width:100%;height:100%'></image> 
+                          </view> 
+                     </view> 
+                </view>
+                
+                <view class='bookitem-bottom' wx:if="{{item.changexia==true}}">
+                     <view class='booitem-bottom-introduction'>
+                          {{item.introduction}}
+                     </view>
+                     <view class='bookitem-bottom-button'>
+                           <button type='primary' data-key='{{index}}' bindtap='pingjia'>评价</button>
+                          <button type='warn' data-key='{{index}}' bindtap='remove'>取消</button>
+                     </view>  
+
+                </view>
+            </view>
+            <view class='piliangdelete' bindtap='piLiangremove'>
+                  批量取消
+            </view>
+          </checkbox-group>
+          
+          </view>
+</view>

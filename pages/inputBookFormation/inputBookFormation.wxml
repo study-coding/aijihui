@@ -1,0 +1,93 @@
+<!--pages/inputBookFormation/inputBookFormation.wxml-->
+<view class='content'>
+    <form bindsubmit='submitBookFormation'>   
+      <view>
+        <text>商品名</text>
+        <input name='productName' value='{{formData.productName}}' type='text'></input>
+      </view>
+       <view>
+        <text>原价</text>
+        <input name='priPrice' value='{{formData.priPrice}}' type='text'></input>
+      </view>
+      <view>
+        <text>商品类型</text>
+        <view class="section">
+          <picker bindchange="typePickerChange" value="{{typeIndex}}" range="{{typeArray}}">
+              <view class="picker">当前选择：{{typeArray[typeIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view>
+        <text>品牌</text>
+        <view class="section">
+          <picker bindchange="brandPickerChange" value="{{brandIndex}}" range="{{brandArray}}">
+            <view class="picker">当前选择：{{brandArray[brandIndex]}}</view>
+          </picker>
+        </view>
+      </view>
+      <view>
+        <text>成色</text>
+        <view class="section">
+          <picker bindchange="degreePickerChange" value="{{degreeIndex}}" range="{{degrees}}">
+              <view class="picker">当前选择：{{degrees[degreeIndex]}} 成</view>
+          </picker>
+        </view>
+      </view>
+      <view class="introduction">
+        <text>是否进水</text>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+            <radio value="1"/>是
+          </label>
+          <label class="radio">
+            <radio value="0" checked="true"/>否
+          </label>
+       </radio-group>
+      </view>
+      <view>
+        <text>是否维修</text>
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio">
+            <radio value="1"/>是
+          </label>
+          <label class="radio">
+            <radio value="0" checked="true"/>否
+          </label>
+       </radio-group>
+      </view>
+      <view>
+        <text>购买时间</text>
+        <picker mode="date" value="{{formData.useDate}}" bindchange="bindDateChange">
+          <view class="weui-input buyTime">
+            {{formData.useDate}}
+          </view>
+        </picker>
+      </view>
+      <view>
+        <text>颜色</text>
+        <input name='classfy' value='{{book.color}}' type='text'></input>
+      </view>
+      <view>
+        <text>图片</text>
+        <view class="weui-uploader">
+          <view class="weui-uploader__hd">
+              <view class="weui-uploader__title">图片上传</view>
+              <view class="weui-uploader__info">{{!imgData?0:1}}/1</view>
+          </view>
+          <view class="weui-uploader__bd">
+              <view class="weui-uploader__files" id="uploaderFiles" wx:if="{{!!imgData}}">
+                  <view class="weui-uploader__file" bindtap="previewImage">
+                    <image class="weui-uploader__img" src='{{imgData}}' mode="aspectFill" />
+                    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap='deleteImg'>删除</button>
+                  </view>
+              </view>
+              <view class="weui-uploader__input-box">
+                  <view class="weui-uploader__input" bindtap="chooseImage"></view>
+              </view>
+          </view>
+      </view>
+            
+      </view>
+      <button bindtap='addPro' >录入</button>
+    </form>
+</view>

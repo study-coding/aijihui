@@ -1,0 +1,28 @@
+<!--pages/shopping/shopping.wxml-->
+<view class='content'>
+      <view class='content-top'>
+          <input></input>
+          <text class='.iconfont .icon-erweima'></text>
+      </view>
+      <view class='content-neck'>
+        
+           
+      </view>
+      <view class='content-border'>
+              <view></view>
+              <text>分类</text>
+              <view></view>
+      </view>
+        <view class='bookimg' style='width:124rpx;height:160rpx'>
+            <image src='/image/img/books1.jpg'style='width:100%;height:100%'></image>
+        </view>
+          <view class='bookimg' style='width:124rpx;height:160rpx'>
+            <image src='/image/img/books1.jpg'style='width:100%;height:100%'></image>
+        </view>
+      <view class='content-classfy'>
+              <view  wx:for="{{satisfycontent}}" style='background:url({{item.img}}); background-size:100% 100%' data-bookid="{{item.id}}" bindtap='tiaozhuanclass'>
+                  <text>华为</text>
+              </view>
+              
+      </view>
+</view>

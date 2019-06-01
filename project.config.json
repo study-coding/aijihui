@@ -1,0 +1,79 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.9",
+	"appid": "wx5c2f70d8efc32c3a",
+	"projectname": "%E7%88%B1%E6%9C%BA%E6%B1%87",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 4,
+			"list": [
+				{
+					"id": -1,
+					"name": "loading",
+					"pathName": "pages/loading/loading",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "zhuce",
+					"pathName": "pages/zhuce/zhuce",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "mine",
+					"pathName": "pages/Mine/Mine",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "zhanshi",
+					"pathName": "pages/zhanshi/zhanshi",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "gouwuche",
+					"pathName": "pages/gouwuche/gouwuche",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,32 @@
+<!--pages/classfydetail/classfydetail.wxml-->
+<view class='content'>
+      <view class='titwords'>
+        <view>
+        <image src='/image/text_bg.png'></image>
+        </view>
+        
+        <text>暂无
+       </text>
+      </view>
+      <view class='user'>
+          <view>
+              <image class='userphoto' src='/image/img/photo4.jpg'></image>
+          </view>
+        
+          <text class='username'>
+             1
+          </text>
+          <text class='.icon-renzhengguanli .iconfont' style='color:#ffc736;font-size:35rpx;'></text>
+      </view>
+      <view class='books'>
+          <view class='items'wx:for="{{classdetail}}" data-bookid='{{item.bookid}}' bindtap='tiaozhuanbookdetail'>
+            <view>
+              <image src='{{item.img}}'></image>
+            </view>
+             
+              <text>
+               {{item.bookname}}
+              </text>
+          </view>
+      </view>
+</view>

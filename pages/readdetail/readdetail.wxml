@@ -1,0 +1,33 @@
+<!--pages/readdetail/readdetail.wxml-->
+<view class='content'>
+      <view class='content-tit'>
+        {{detaildata.tit}}
+      </view>
+      <view class='content-author'>
+          <view class='content-author-left'>
+              <image src='{{detaildata.aPhoto}}'>
+              </image>
+              <text>{{detaildata.author}}</text>
+          </view>
+          <view class='content-author-right'>
+                关注
+          </view>
+      </view>
+      <view class='content-words'>
+      {{detaildata.words}}
+      </view>
+      <view class='content-img'>
+          <image src='{{detaildata.bigImg}}'></image>
+      </view>
+</view>
+      <view class='buttom'>
+            <view>
+              <text class='.iconfont .icon-share'></text>
+            </view>
+               <view>
+              <text class='.iconfont .icon-xin'></text>
+            </view>
+               <view>
+              <text class='.iconfont .icon-pinglun'></text>
+            </view>
+      </view>

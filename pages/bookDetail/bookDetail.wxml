@@ -1,0 +1,59 @@
+<!--pages/bookDetail/bookDetail.wxml-->
+<view class='content'>
+  <view class='top'>
+    <view>
+      <image style="width:100%;height:100%" src='{{bookdetail.img}}'></image>
+    </view>
+    <text>{{bookdetail.bookname}}</text>
+    <text>{{bookdetail.author}}</text>
+    <text>1075在读 ></text>
+  </view>
+  <view class='neck'>
+    <view class="swiper-tab">
+      <view class="swiper-tab-list {{currentTab==0? 'on':''}}" data-current='0' bindtap='swich'>详情</view>
+      <view class="swiper-tab-list {{currentTab==1? 'on':''}}" data-current='1' bindtap='swich'>目录</view>
+    </view>
+  </view>
+  <swiper current='{{currentTab}}' class='swiper-box' duration='300' bindchange='bindChange'>
+    <swiper-item>
+      <text></text>
+      <view id='introduction'>
+        {{bookdetail.introduction}}
+      </view>
+      <text></text>
+      <view class='request'>
+        <view class='request-top'>
+          <view style='width:130rpx;height:40rpx;display:flex;'>
+            <view style='width:62rpx;height:34rpx;font-size:30rpx'>提问</view>
+             <view style='width:44rpx;height:22rpx;font-size:28rpx'>(20)</view>  
+          </view>
+          <view style='width:134rpx;height:48rpx;border:1px solid #bb987c;text-align:center;lingheight:48rpx;border-radius:25rpx'>提问</view>
+        </view>
+        <view class='request-content'>
+          <view style='font-size；30rpx;font-weight:bold;margin-left:0'>阅读是怎样的一种体验</view>
+          <view style='margin-left:0;position:relative'>
+                <view style='position:absolute;width:70rpx;height:70rpx;border:1px solid red;margin-left:0'></view>
+                  <view style='margin-left:90rpx;width:600rpx'>
+                        西方语系资料室现有图书约3000册，涵盖西班牙语、葡萄牙语、意大利语、希腊语专业各类教学科研书籍，按用途主要分为工具书、教材、成果专著和文学作品四大类：其中工具书包括西、葡、意、希词典，分类词典及系俗语谚语词典等，以及上述各语种的百科全书；教材包括精读教材、泛读教材等基础教材和会话、翻译、写作、商务、旅游等专项教材；成果专著则包括从事语言学、文学、翻译及社会学研究所需的经典参考书目；
+
+                  </view>  
+          </view>
+        </view>
+      </view>
+
+
+
+    </swiper-item>
+    <swiper-item>
+      <text></text>
+      <view id="contents">
+        <view wx:for="{{catalogue}}">{{item}}</view>
+      </view>
+    </swiper-item>
+  </swiper>
+  <view class='bottom'>
+    <view wx:if="{{flag}}" class="{{flag==true? 'cssadd':''}}" bindtap='addorCancel'>从书桌移除</view>
+     <view wx:else  bindtap='addorCancel'>加入书桌</view>
+    <view>阅读</view>
+  </view>
+</view>

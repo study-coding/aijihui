@@ -1,0 +1,78 @@
+/* pages/readindex/readindex.wxss */
+@import "/style/iconfont.wxss";
+page{
+  background-color: #f6f6f6;
+}
+
+.content{
+
+}
+.items {
+  width: 100%;
+  background-color:white; 
+}
+.item{
+ width: 690rpx;
+ margin: auto;
+margin-top:20rpx;
+}
+.items .item .item-top{
+height: 100rpx;
+width: 100%;
+display: flex;
+align-items: center;
+
+}
+.items .item .item-top image{
+width: 70rpx;
+height: 70rpx;
+border-radius: 50%;
+}
+.items .item .item-top text{
+  margin-left: 50rpx;
+}
+.items .item .item-title{
+  margin-top: 15rpx;
+}
+.items .item .item-title image{
+  height: 305rpx;
+  width: 100%;
+  border-radius:10rpx; 
+}
+.items .item .item-title > view{
+  margin-top: 30rpx;
+  color: #5c5c5c;
+  font-weight: bold;
+  font-size: 45rpx;
+  text-align: justify;
+}
+
+.items .item .item-title view text{
+  display:inline-block;
+  width:75rpx;
+  height:45rpx;
+  background-color:#bc7878 ;
+  border-radius: 30%; 
+  font-size: 27rpx;
+  color: #fff;
+  line-height: 45rpx;
+  text-align: center;
+  
+}
+.items .item .item-content{
+    color: #7f7f7f;
+    font-size: 28rpx;
+    text-indent: 2em;
+    word-break: break-all;
+}
+.items .item .item-number{
+  padding: 20rpx;
+  margin-bottom:10px; 
+  height:30rpx; 
+  display: flex;
+  justify-content: space-between;
+  color: #c0c0c0;
+  font-size: 30rpx;
+
+
+}

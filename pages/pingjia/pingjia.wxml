@@ -1,0 +1,29 @@
+<!--pages/pingjia/pingjia.wxml-->
+<view class='content'>
+  <view class='top'>
+        <view>本商品如何</view>
+        <input type='text' placeholder='请写评价' style='border-bottom:1px solid gray'></input>
+  </view>
+  <view class='middle'>
+        <view class='bookimg' style='width:124rpx;height:160rpx'>
+            <image src='/image/img/books1.jpg'style='width:100%;height:100%'></image>
+        </view>
+        <view>iphone 7</view>
+        <view>1000</view>
+        <view>本次交易评分</view>
+        <view class='centerline'></view>
+            <view class='xing'>
+                  <text wx:for="{{liangs}}" class="icon-jingdiananli_wujiaoxing_shoucanghou iconfont {{item ? 'on':'down'}}" data-key='{{index}}' bindtap='dianliang'></text>
+            </view>
+        <view class='biaoqians'>
+           
+           <view wx:for="{{items}}" class='biaoqiansitem'>{{item}}</view>
+        </view>
+        <textarea placeholder="写点感受吧" maxlength='500' value='{{content}}' bindinput='getnum'>
+
+        </textarea>
+        <text class='num'>{{num}}/500</text>
+  </view>
+
+</view>
+  <view class='bottom'>提交</view>

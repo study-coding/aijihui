@@ -1,0 +1,30 @@
+/* pages/inputBookFormation/inputBookFormation.wxss */
+page{
+  background: #f5f6f6;
+}
+
+.content view{
+  padding:10rpx 30rpx;
+  background: white;
+  margin-bottom: 16rpx;
+}
+text{
+  display: block;
+  height: 96rpx;
+  line-height: 96rpx;
+  color: #444;
+  font-weight: bold;
+}
+input{
+  border:1px solid #f0eeee; 
+  height: 100rpx;
+}
+
+.introduction-content{
+   border:1px solid #f0eeee; 
+  /* height: 280rpx; */
+}
+
+.buyTime{
+  border:1px solid #f0eeee;
+}

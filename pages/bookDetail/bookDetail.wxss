@@ -1,0 +1,124 @@
+/* pages/bookDetail/bookDetail.wxss */
+page{
+  height: 100%;
+}
+
+.content{
+
+}
+.top{
+  height: 596rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.top view{
+  width: 218rpx;
+  height: 304rpx;
+  box-shadow: 9rpx 9rpx 10rpx 5rpx #eceaea;
+}
+.top text:nth-child(2){
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-top: 64rpx;
+
+ 
+}
+.top text:nth-child(3){
+  font-size: 28rpx;
+  color: #7bc7d4;
+  margin-top: 38rpx;
+}
+.top text:nth-child(4){
+    font-size: 24rpx;
+  color: #dad7d7;
+  margin-top:40rpx; 
+}
+.swiper-tab{
+ 
+  display: flex;
+  justify-content: space-around;
+}
+.swiper-tab view{
+  padding-bottom: 26rpx;
+}
+.swiper-tab-list{
+  color: #a1a1a1;
+}
+.on{
+    border-bottom:1px solid black;
+    color:#444444;
+}
+.swiper-box{
+  height: 1300rpx;
+}
+
+swiper-item{
+
+}
+swiper swiper-item view {
+  width: 690rpx;
+  margin:0 30rpx;
+ 
+}
+swiper swiper-item text{
+  display: block;
+  height: 1px;
+  background-color: #e0dede;
+}
+ #introduction{
+  padding-top: 50rpx; 
+ font-size: 30rpx;
+ color: #444444; 
+ letter-spacing: 4rpx;
+ text-indent: 2em;
+ height: 400rpx;
+}
+#contents view{
+  height: 99rpx;
+  line-height: 100rpx;
+  border-bottom:1px solid #ececec;
+  color: #444444;
+  font-size: 30rpx;
+}
+.bottom{
+  position: fixed;
+  bottom: 0rpx;
+  height: 96rpx;
+  width: 100%;
+ background-color: gold; 
+ display: flex;
+}
+.bottom view{
+  width: 50%;
+  text-align: center;
+  line-height: 96rpx;
+}
+.bottom view:first-child{
+  background-color: #fff;
+}
+.bottom view:nth-child(2){
+  background-color:#b89477; 
+  color: white;
+}
+.request{
+  margin: 0;
+}
+.request-top{
+  margin: 30rpx;
+  width: 100%;
+  height: 54rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.request-top view{
+  width: 100%;
+  height: 100%;
+  margin-left:0px; 
+  margin-right:0px; 
+}
+.cssadd{
+  color: lightgray;
+  background: gray;
+}

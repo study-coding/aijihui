@@ -1,0 +1,5 @@
+<view class='conta'>
+<view>
+<navigator style='display: inline;color:red;'url='/pages/shopping/shopping' open-type='switchTab'>暂时没有商品，去逛逛吧~</navigator>
+</view>
+</view>

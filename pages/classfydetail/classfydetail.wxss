@@ -1,0 +1,82 @@
+/* pages/classfydetail/classfydetail.wxss */
+@import "/style/iconfont.wxss";
+page{
+ margin: 0;
+ padding: 0;
+}
+.content{
+  width: 660rpx;
+  margin: 0 48rpx;
+}
+.content .titwords{
+  width: 640rpx;
+  position: relative;
+  
+}
+.content .titwords view image{
+  position: absolute;
+  width: 110rpx;
+  height: 80rpx;
+  opacity: 0.8;
+}
+.content .titwords text{
+  display: inline-block;
+  margin-left:70rpx; 
+  margin-top:38rpx; 
+  word-break: break-all;
+  color: #444444;
+  font-weight: bold;
+  font-size: 32rpx;
+  line-height: 50rpx;
+}
+.content .user{
+  width: 100%;
+  height: 52rpx;
+  display: flex;
+  margin: 34rpx 0;
+  justify-content: flex-end;
+  align-items: center;
+
+}
+.content .user view{
+  width: 50rpx;
+  height: 50rpx;
+}
+.content .user image{
+  width: 100%;
+  height: 100%;
+  border-radius:50%;  
+}
+.content .user .username{
+  display: block;
+  margin:0 12rpx; 
+  color: #7f7f7f;
+  font-size: 25rpx;
+  position: relative;
+  top:-20rpx;  
+  
+}
+.content .books{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.content .books .items{
+  width: 174rpx;
+}
+.content .books .items view{
+  width: 100%;
+  height: 244rpx;
+}
+.content .books .items image{
+  width: 100%;
+  height: 100%;
+}
+.content .books .items text{
+  width: 100%;
+  display: block;
+  color: #444444;
+  font-weight: bold;
+  font-size: 26rpx;
+  height: 112rpx;
+}

@@ -1,0 +1,68 @@
+/* pages/shopping/shopping.wxss */
+@import "/style/iconfont.wxss";
+.content{
+  padding: 0 30rpx;
+}
+.content-top{
+  display: flex;
+  height: 68rpx;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.content-top input{
+  height: 67rpx;
+  width: 600rpx;
+  border: 1px solid #f6f6f6;
+  background: #f6f6f6;
+  border-radius: 20rpx;
+
+}
+.content-top text{
+ color: #979797;
+ font-size: 40rpx;
+ font-weight: bold;
+}
+
+.content-neck view{
+  width: 330rpx;
+  height: 100%;
+  border-radius: 5%;
+}
+.content-border{
+margin: 32rpx 0;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.content-border text{
+
+  font-size: 25rpx;
+  color: #b3b3b3;
+}
+.content-border view{
+  height: 2rpx;
+  width: 300rpx;
+  background: #f1f1f1;
+}
+.content-classfy{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-between;
+}
+.content-classfy view{
+  width: 212rpx;
+  height: 212rpx;
+  margin-bottom:28rpx; 
+  border-radius: 5%;
+
+}
+.content-classfy text{
+    font-size: 36rpx;
+    color: #fff;
+    font-weight: bold;
+    line-height: 100rpx;
+     margin-left: 22rpx; 
+}

@@ -1,0 +1,118 @@
+/* pages/pingjia/pingjia.wxss */
+@import "/style/iconfont.wxss";
+.content{
+  width: 670rpx;
+  margin: auto;
+}
+.top>view:nth-child(1){
+    font-size: 28rpx;
+    color: #585858;
+    font-weight: bold;
+    text-align: center;
+    letter-spacing: 4rpx;
+}
+.top input{
+  text-align: center;
+  font-size: 26rpx;
+}
+.middle{
+  margin-top: 16rpx;
+  
+}
+.bookimg{
+  margin: 0 auto;
+}
+.middle>view:nth-child(2){
+  color: #585858;
+  font-weight: bold;
+  font-size: 28rpx;
+  text-align: center;
+  margin-top:20rpx; 
+}
+.middle>view:nth-child(3){
+  text-align: center;
+  font-size: 26rpx;
+  margin-top: 12rpx;
+  color:#e5e5e5;
+}
+.middle>view:nth-child(4){
+   position: relative;
+   color: #585858;
+  font-weight: bold;
+  font-size: 28rpx;
+  text-align: center;
+  z-index: 2;
+  width: 212rpx;
+  margin:0 auto;
+  margin-top:20rpx; 
+  background: white;
+}
+.middle .centerline{
+  width: 328rpx;
+  height: 1rpx;
+  background-color: #e5e5e5;
+  position: relative;
+  bottom:20rpx;
+  left: 175rpx;
+  z-index: 1;
+}
+.xing{
+  text-align: center;
+}
+.down{
+    font-size: 48rpx;
+    color: #cccccc;
+    margin: 0 9rpx;
+}
+.on{
+    font-size: 48rpx;
+    color: #ffc600;
+    margin: 0 9rpx;
+    
+}
+
+.biaoqians{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+
+}
+.biaoqiansitem{
+
+  width: 158rpx;
+  height: 48rpx;
+  border:1rpx solid #cacaca; 
+  text-align: center;
+  margin-right:7rpx;
+  margin-top:6rpx;  
+  font-size: 22rpx;
+  color:#cccccc;
+}
+.biaoqiansitem:nth-child(4n){
+  margin-right:0rpx;
+}
+textarea{
+  margin-top:27rpx; 
+  width: 100%;
+  height: 298rpx;
+  border: 1rpx solid #cccccc;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+}
+.num{
+  position: relative;
+  color: #cccccc;
+  font-size: 24rpx;
+  left: 600rpx;
+  top:-48rpx;
+}
+.bottom{
+  height: 100rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
+  background: #00b2b2;
+  color: white;
+  text-align: center;
+  line-height: 100rpx;
+}
