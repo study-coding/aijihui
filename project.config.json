@@ -37,7 +37,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -71,6 +71,13 @@
 					"id": -1,
 					"name": "gouwuche",
 					"pathName": "pages/gouwuche/gouwuche",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "personinfo",
+					"pathName": "pages/personinfo/personinfo",
 					"scene": null
 				}
 			]

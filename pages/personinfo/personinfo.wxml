@@ -1,0 +1,40 @@
+<!--pages/personinfo/personinfo.wxml-->
+<view class='personinfo-bg'>
+<view class='personinfo'>
+ <form bindsubmit='personinfosubmit'>
+  <view class='personinfo-spc'>
+  <text style='font-weight:bold'>用户名</text> 
+  <input id='userName' placeholder="{{user_name}}" disabled='{{iseditor}}'></input>
+  </view>
+
+  <view class='personinfo-spc'>
+  <text style='font-weight:bold'>邮箱</text> 
+  <input id= 'email' placeholder="{{email}}" disabled='{{iseditor}}'></input>
+  </view>
+
+
+  <view class='personinfo-spc'>
+  <text style='font-weight:bold'>地址</text> 
+  <input id = 'address' placeholder="{{address}}" disabled='{{iseditor}}'></input>
+  </view>
+
+  <view class='personinfo-spc' wx:if="{{iseditor}}">
+  <text style='font-weight:bold'>出生日期</text> 
+  <input id = 'birthday' placeholder="{{dates}}" disabled='{{iseditor}}'></input>
+  </view>
+  
+   </form>
+<picker wx:if="{{!iseditor}}" mode="date" value="{{date}}" start="1978-01-01" end="2017-1-23" bindchange="bindDateChange">  
+    <view class="picker" style='border-bottom: 1px solid #eee;'>  
+      <text style='font-weight:bold'>出生日期</text>
+      <text style='margin-left:45rpx;'>{{dates}}  </text>
+    </view>  
+  </picker>  
+
+<view class='bt'>
+  <button wx:if="{{iseditor}}" class="weui-btn " type="primary" plain="true" bindtap='personinfoeditor'>编辑</button>
+    <button wx:if="{{!iseditor}}" class="weui-btn" type="primary" bindtap='saveinfo'>保存</button>
+    </view>
+
+ </view>
+</view>
