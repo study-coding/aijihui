@@ -13,8 +13,8 @@
     "pages/shopping/shopping",
     "pages/logs/logs",
     "pages/gouwuche/gouwuche",
-    "pages/Mine/Mine"
-    
+    "pages/Mine/Mine",
+    "pages/personinfo/personinfo"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -23,7 +23,7 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "lightgray",
+    "color": "#000",
     "list": [
       {
         "pagePath": "pages/readindex/readindex",
@@ -50,8 +50,7 @@
         "selectedIconPath": "/image/tab_icon4_active.png"
       }
     ],
-    "color":"#000",
-    "selectedColor":"#00f"
+    "selectedColor": "#00f"
   },
   "sitemapLocation": "sitemap.json"
 }

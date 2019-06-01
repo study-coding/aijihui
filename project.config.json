@@ -83,8 +83,8 @@
 				},
 				{
 					"id": -1,
-					"name": "detail",
-					"pathName": "pages/bookDetail/bookDetail",
+					"name": "personinfo",
+					"pathName": "pages/personinfo/personinfo",
 					"scene": null
 				}
 			]
