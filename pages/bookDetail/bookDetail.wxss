@@ -49,9 +49,7 @@ page{
     border-bottom:1px solid black;
     color:#444444;
 }
-.swiper-box{
-  height: 1300rpx;
-}
+
 
 swiper-item{
 

@@ -1,6 +1,7 @@
 //app.js
 var Cloud =require("/utils/av-weapp-min.js");
 Cloud.init({ appId: 'bOQ61rluN7pdjJ3RzVcF681X-gzGzoHsz', appKey: 'I1rfjlOsjO1zRes3qMeFVuMe' }) 
+const requestUrl = 'http://cx5sm9.natappfree.cc'
 App({
   onLaunch: function () {
     // 展示本地存储能力

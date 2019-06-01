@@ -1,5 +1,5 @@
 var app = getApp();
-const uploadPath = "http://localhost:8080/goods/upload"
+const uploadPath = "http://cx5sm9.natappfree.cc/goods/upload"
 
 const upload = () => {
   return new Promise((resolve, rej) =>{

@@ -3,11 +3,11 @@
     <form bindsubmit='submitBookFormation'>   
       <view>
         <text>商品名</text>
-        <input name='productName' value='{{formData.productName}}' type='text'></input>
+        <input name='productName' bindblur='setProductName' value='{{formData.productName}}' type='text'></input>
       </view>
        <view>
         <text>原价</text>
-        <input name='priPrice' value='{{formData.priPrice}}' type='text'></input>
+        <input name='priPrice' bindblur='setPriPrice' value='{{formData.priPrice}}' type='text'></input>
       </view>
       <view>
         <text>商品类型</text>
@@ -35,7 +35,7 @@
       </view>
       <view class="introduction">
         <text>是否进水</text>
-        <radio-group class="radio-group" bindchange="radioChange">
+        <radio-group class="radio-group" bindchange="waterChange">
           <label class="radio">
             <radio value="1"/>是
           </label>
@@ -46,7 +46,7 @@
       </view>
       <view>
         <text>是否维修</text>
-        <radio-group class="radio-group" bindchange="radioChange">
+        <radio-group class="radio-group" bindchange="repairChange">
           <label class="radio">
             <radio value="1"/>是
           </label>

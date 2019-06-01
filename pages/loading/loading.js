@@ -1,4 +1,5 @@
 // pages/loading/loading.js
+const requestUrl = require("../../utils/request.js").requestUrl
 var app = getApp();
 Page({
 
@@ -14,10 +15,43 @@ Page({
    * @desc 登录
    */
   load: function(){
+    wx.request({
+      url: requestUrl + '/ajhUser/login',
+      data: {
+        "phone": this.data.account,
+        "password": this.data.password
+      },
+      'method': 'post',
+      success(res) {
+        wx.setStorage({
+          key: 'curUserInfo',
+          data: res.data.user,
+        })
+      }
+    })
     wx.switchTab({
       url: '../Mine/Mine'
     })
   },
+
+  /**
+   * @desc 设置账号
+   */
+  getAccount: function(e){
+    this.setData({
+      account: e.detail.value
+    })
+  },
+
+  /**
+   * @desc 设置密码
+   */
+  getPassword: function (e) {
+    this.setData({
+      password: e.detail.value
+    })
+  },
+
 
   /**
    * @desc 注册

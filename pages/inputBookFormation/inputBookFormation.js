@@ -4,6 +4,7 @@ var Books =Cloud.Object.extend("Books");
 var query = new Cloud.Query('Books');
 var upload = require("../../utils/upload.js");
 var getNowTime = require("../../utils/util.js").getNowTime
+var getBase64 = require("../../utils/util.js").getBase64
 Page({
 
   /**
@@ -35,9 +36,9 @@ Page({
       productName: '',   // 商品名字
       kindId: '',    // 种类id
       bandId: '',  // 品牌ID
-      degree: '',    // 成色
-      isRepair: '',  // 是否维修
-      isWater: '',    // 是否进水
+      degree: '1',    // 成色
+      isRepair: '1',  // 是否维修
+      isWater: '1',    // 是否进水
       picUrl: '',  // 图片路径
       color: '',     // 颜色 
     }
@@ -100,8 +101,13 @@ Page({
    * @des 选择品牌
    */
   brandPickerChange: function (e) {
+    var str = 'formData.useDate'
     this.setData({
       brandIndex: e.detail.value
+    })
+    this.setData({
+      typeIndex: e.detail.value,
+      [str]: brandArray[e.detail.value]
     })
   },
 
@@ -109,8 +115,11 @@ Page({
    * @des 选择成色
    */
   degreePickerChange: function (e) {
+    var str = 'formData.degree'
     this.setData({
-      degreeIndex: e.detail.value
+      degreeIndex: e.detail.value,
+      [str]: this.data.degrees[e.detail.value]
+
     })
   },
 
@@ -118,26 +127,24 @@ Page({
    * @des 选择商品类型
    */
   typePickerChange: function (e) {
+    var str = 'formData.useDate'
     this.setData({
-      typeIndex: e.detail.value
+      typeIndex: e.detail.value,
+      [str]: brandArray[e.detail.value]
     })
   },
 
   chooseImage: function (e) {
     var that = this
-    upload.upload().then( res=>{
-      wx.request({
-        url: 'http://localhost:8080/goods/preview',
-        data: {
-          imageUrl: res
-        },
-        success(res) {
-          var imgBase64 = res.data;
-          imgBase64 = imgBase64.replace(/[\r\n]/g, "")
-          that.setData({
-            imgData: imgBase64
-          })
-        }
+    var str = 'formData.picUrl'
+    upload.upload(getBase64).then( res=>{
+      that.setData({
+        [str]: res
+      })
+      getBase64(res).then(res => {
+        that.setData({
+          imgData: res
+        })
       })
     })
 
@@ -147,8 +154,10 @@ Page({
    * @desc 删除图片
    */
   deleteImg: function(){
+    var str = 'formData.picUrl'
     this.setData({
-      imgData: ''
+      imgData: '',
+      [str]: ''
     })
   },
   
@@ -170,8 +179,57 @@ Page({
     })
   },
 
+  /**
+   * @desc 设置商品名
+   */
+  setProductName: function(e){
+    var str = 'formData.productName'
+    this.setData({
+      [str]: e.detail.value
+    })
+  },
+
+  /**
+   * @desc 设置原价
+   */
+  setPriPrice: function(e){
+    var str = 'formData.priPrice'
+    this.setData({
+      [str]: e.detail.value
+    })
+  },
+
+  /**
+   * @desc 设置是否进水
+   */
+  waterChange: function(e){
+    var str = 'formData.isWater'
+    this.setData({
+      [str]: e.detail.value
+    })
+  },
+
+  /**
+   * @desc 设置是否维修
+   */
+  repairChange: function (e) {
+    var str = 'formData.isRepair'
+    this.setData({
+      [str]: e.detail.value
+    })
+  },
+
   addPro: function(){
     console.log(this.data.formData, this.data.imgData)
+  },
+
+  /**
+   * @desc 初始化商品类型
+   */
+  initType: function(){
+    wx.request({
+      url: '',
+    })
   },
 
   /**
@@ -185,7 +243,6 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
   },
 
   /**

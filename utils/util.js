@@ -33,7 +33,30 @@ const getNowTime = () => {
   return formatDate;
 } 
 
+/**
+ * @desc 图片路径去请求base64
+ * @param imgUrl
+ * @return imgBase64
+ */
+const getBase64 = (imgUrl) => {
+  return new Promise((resolve, rej) => {
+    wx.request({
+      url: 'http://cx5sm9.natappfree.cc/goods/preview',
+      data: {
+        imageUrl: imgUrl
+      },
+      success(res) {
+        var imgBase64 = res.data;
+        imgBase64 = imgBase64.replace(/[\r\n]/g, "")
+        return resolve(imgBase64)
+      }
+    })
+  })
+}
+
+
 module.exports = {
   formatTime: formatTime,
-  getNowTime: getNowTime
+  getNowTime: getNowTime,
+  getBase64: getBase64
 }

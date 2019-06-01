@@ -22,36 +22,18 @@ Page({
   },
   addorCancel: function() {
     var that =this;
-    if (this.data.flag == false) {
-        wx.showModal({
-          title: '提示',
-          content: '是否加入',
-          success:function(res){
-                if(res.confirm){
-                  var book = new Cloud.Object.createWithoutData('Books', that.data.bookdetail.bookid)
-                  book.set('addflag',true);
-                  book.save().then(function (res) {
-                    that.setData({
-                        flag:true
-                    })
-                  });
-                  console.log(that.data.bookdetail);
-                }
-          }
-        })
-    } 
-    else {
-          wx.showToast({
-            title: '移除成功',
-          })
-          var book = new Cloud.Object.createWithoutData('Books', that.data.bookdetail.bookid)
-          book.set('addflag', false);
-          book.save().then(function (res) {
-            that.setData({
-              flag: false
-            })
-          });
-    }
+    wx.showModal({
+      title: '提示',
+      content: '是否加入',
+      success:function(res){
+            if(res.confirm){
+              wx.switchTab({
+                url: '../gouwuche/gouwuche',
+              })
+            }
+      }
+    })
+
   },
   onLoad: function(options) {
     var bookid = options.bookid;

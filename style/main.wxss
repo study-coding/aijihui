@@ -1,0 +1,7 @@
+.font-style{
+  font-size: 14px;
+}
+
+.font-red{
+  color: red;
+}
