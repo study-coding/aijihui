@@ -2,14 +2,18 @@
 <view class='content'>
   <view class='top'>
     <view>
-      <image style="width:100%;height:100%" src='{{bookdetail.img}}'></image>
+      <image style="width:100%;height:100%" src='{{detail.picUrl}}'></image>
     </view>
-    <text>{{bookdetail.bookname}}</text>
-    <text>价格</text>
+    <text>名称：{{detail.productName}}</text>
+    <text>成色：{{detail.degree}}（成）</text>
+    <text>品牌：{{detail.bandName}}</text>
+    <text>颜色：{{detail.color}}</text>
+    <text style='text-decoration:line-through'>￥{{detail.priPrice}}</text>
+    <text style='color: red'>￥{{detail.nowPrice}}</text>
   </view>
   <view class='neck'>
     <view class="swiper-tab">
-      <view class="swiper-tab-list {{currentTab==0? 'on':''}}" data-current='0' bindtap='swich'>详情</view>
+      <view style='color: red' class="swiper-tab-list {{currentTab==0? 'on':''}}" data-current='0' bindtap='swich'>评价（1）</view>
     </view>
   </view>
   <swiper current='{{currentTab}}' class='swiper-box' duration='300' bindchange='bindChange'>
@@ -22,6 +26,6 @@
   </swiper>
   <view class='bottom'>
      <view bindtap='addorCancel'>加入购物车</view>
-    <view>取消</view>
+    <view bindtap='cancel'>取消</view>
   </view>
 </view>

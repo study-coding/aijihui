@@ -65,7 +65,7 @@
       </view>
       <view>
         <text>颜色</text>
-        <input name='classfy' value='{{book.color}}' type='text'></input>
+        <input name='classfy' value='{{book.color}}' type='text' bindblur='setColor'></input>
       </view>
       <view>
         <text>图片</text>

@@ -38,8 +38,10 @@ Page({
        })
      }
 
-    if (res.currentTarget.dataset.index == 4) {
-      upload.upload();
+    if (res.currentTarget.dataset.index == 3) {
+      wx.navigateTo({
+        url: '../personinfo/personinfo',
+      })
     }
   },
   //事件处理函数

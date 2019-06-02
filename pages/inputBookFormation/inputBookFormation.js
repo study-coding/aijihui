@@ -5,6 +5,7 @@ var query = new Cloud.Query('Books');
 var upload = require("../../utils/upload.js");
 var getNowTime = require("../../utils/util.js").getNowTime
 var getBase64 = require("../../utils/util.js").getBase64
+var requestUrl = require("../../utils/request.js").requestUrl 
 Page({
 
   /**
@@ -13,22 +14,14 @@ Page({
   data: {
     book: { img: '', bookname: '', author: '', classfy: '', catalogue: '', introduction:''},
     imgData: '',
-    brandArray: ['小米', '华为'],
+    brandArray: [],
     brandIndex: 0,
-    brand: [
-      { id: 0},
-      { id: 1}
-
-    ],
+    brand: [],
     degreeIndex: 0,
     degrees: [1, 2, 3, 4, 5, 6, 7, 8, 9],
-    typeArray: ['手机', '电脑', '其他'],
+    typeArray: [],
     typeIndex: 0,
-    type: [
-      { id: 0 },
-      { id: 1 },
-      { id: 2 }
-    ],
+    type: [],
 
     formData: {
       useDate: getNowTime(),  // 购买时间
@@ -41,6 +34,7 @@ Page({
       isWater: '1',    // 是否进水
       picUrl: '',  // 图片路径
       color: '',     // 颜色 
+      userId: ''
     }
   },
 
@@ -97,17 +91,16 @@ Page({
         })
       }
   },
+
   /**
    * @des 选择品牌
    */
   brandPickerChange: function (e) {
-    var str = 'formData.useDate'
+    var str = 'formData.bandId'
     this.setData({
-      brandIndex: e.detail.value
-    })
-    this.setData({
-      typeIndex: e.detail.value,
-      [str]: brandArray[e.detail.value]
+      brandIndex: e.detail.value,
+      [str]: this.data.brand[e.detail.value].id
+
     })
   },
 
@@ -127,11 +120,15 @@ Page({
    * @des 选择商品类型
    */
   typePickerChange: function (e) {
-    var str = 'formData.useDate'
+    var str = 'formData.kindId'
+    var str1 = 'formData.bandId'
     this.setData({
       typeIndex: e.detail.value,
-      [str]: brandArray[e.detail.value]
+      [str]: this.data.brand[e.detail.value].id,
+      brandIndex: 0,
+      str1: ''
     })
+    this.initBrand(this.data.type[e.detail.value].id) 
   },
 
   chooseImage: function (e) {
@@ -219,16 +216,86 @@ Page({
     })
   },
 
+  /**
+   * @desc 设置颜色
+   */
+  setColor: function(e){
+    var str = 'formData.color'
+    this.setData({
+      [str]: e.detail.value
+    })
+  },
+
   addPro: function(){
-    console.log(this.data.formData, this.data.imgData)
+    console.log(this.data.formData)
+    let data = this.data.formData
+    data.bandId = this.data.brand[this.data.brandIndex].id
+    data.kindId = this.data.type[this.data.typeIndex].id
+    wx.getStorage({
+      key: 'curUserInfo',
+      success: function(res) {
+        data.userId = res.data.id
+        wx.request({
+          url: requestUrl + '/ajhProduct/insertAjhProduct',
+          method: 'post',
+          data: data,
+          success(res) {
+            console.log(res)
+            if (res.data) {
+              wx.switchTab({
+                url: '../Mine/Mine'
+              })
+            }
+          }
+        })
+      },
+    })
+    
   },
 
   /**
    * @desc 初始化商品类型
    */
   initType: function(){
+    let that = this
     wx.request({
-      url: '',
+      url: requestUrl + '/ajhProduct/initProduct',
+      method: 'get',
+      success(res) {
+        let list = []
+        res.data.kind.forEach(v=>{
+          list.push(v.kindName);
+        })
+        that.setData({
+          typeArray: list,
+          type: res.data.kind,
+        })
+        that.initBrand(res.data.kind[0].id)
+      }
+    })
+  },
+
+  /**
+  * @desc 类型改变品牌改变
+  */
+  initBrand: function (kindId) {
+    let that = this
+    wx.request({
+      url: requestUrl + '/ajhProduct/changeBandList',
+      method: 'post',
+      data: {
+        fatherId: kindId
+      },
+      success(res) {
+        let bandList = []
+        res.data.forEach(v => {
+          bandList.push(v.bandName);
+        })
+        that.setData({
+          brandArray: bandList,
+          brand: res.data
+        })
+      }
     })
   },
 
@@ -243,6 +310,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.initType();
   },
 
   /**

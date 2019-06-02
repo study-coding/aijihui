@@ -48,6 +48,7 @@ const getBase64 = (imgUrl) => {
       },
       success(res) {
         var imgBase64 = res.data;
+        if(!imgBase64) return resolve();
         imgBase64 = imgBase64.replace(/[\r\n]/g, "")
         return resolve(imgBase64)
       }
