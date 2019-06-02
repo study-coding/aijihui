@@ -38,10 +38,11 @@ const getNowTime = () => {
  * @param imgUrl
  * @return imgBase64
  */
+var requestUrl = require("./request.js").requestUrl 
 const getBase64 = (imgUrl) => {
   return new Promise((resolve, rej) => {
     wx.request({
-      url: 'http://cx5sm9.natappfree.cc/goods/preview',
+      url: requestUrl + '/goods/preview',
       data: {
         imageUrl: imgUrl
       },

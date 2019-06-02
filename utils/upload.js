@@ -1,5 +1,6 @@
 var app = getApp();
-const uploadPath = "http://cx5sm9.natappfree.cc/goods/upload"
+var requestUrl = require("./request.js").requestUrl
+const uploadPath = requestUrl + "/goods/upload"
 
 const upload = () => {
   return new Promise((resolve, rej) =>{
@@ -15,7 +16,7 @@ const upload = () => {
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
-            'user': app.globalData.userInfo.nickName
+            'user': ''
           },
           success: function (res) {
             var data = res.data

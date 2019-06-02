@@ -1,42 +1,24 @@
 <!--pages/zhuce/zhuce.wxml-->
 <view class='container'>
-<view class='header'>
-<text>请填写个人信息</text>
-</view>
-<form bindsubmit="formSubmit">
- <view class='section'>
- <text>账号：</text>
- <input type='number' placeholder='请输入账号' name="no" value=''/>
- </view>
- <view class='section'>
- <text>密码:</text>
- <input password='true' placeholder='请输入密码' name="pwd" value=''/>
- </view>
- <view class='section'>
- <text>姓名：</text>
- <input type='number' placeholder='请输入姓名' name="no" value=''/>
- </view>
- <view class='section'>
- <text>出生日期：</text>
- <input type='number' placeholder='请输入日期' name="no" value=''/>
- </view>
-  <view class='section'>
- <text>电话号码：</text>
- <input type='number' placeholder='请输入电话号码' name="no" value=''/>
- </view>
- <view class='section'>
- <text>电子邮箱：</text>
- <input type='number' placeholder='' name="no" value=''/>
- </view>
- <view class='section'>
- <text>性别：</text>
- <input type='number' placeholder='' name="no" value=''/>
- </view>
-   <view class='button'>
-  <button type='primary' bindtap='jumpBtn'>注册会员</button>
+  <view class='header'>
+    <text>请填写个人信息</text>
   </view>
+  <form bindsubmit="formSubmit">
+  
+    <view class='section'>
+      <text>电话号码：</text>
+      <input type='number' placeholder='请输入电话号码' name="no" value=''/>
+    </view>
+    <view class='section'>
+      <text>密码:</text>
+      <input password='true' placeholder='请输入密码' name="pwd" value=''/>
+    </view>
+    <view class='section'>
+      <text>确认密码:</text>
+      <input password='true' placeholder='请输入密码' name="pwd" value=''/>
+    </view>
+    <view class='button'>
+      <button type='primary' bindtap='jumpBtn'>注册会员</button>
+    </view>
   </form>
-  <view class='fpwd' bindtap='findpwd'>
-  <text></text>
-  </view>
-  </view>
+</view>

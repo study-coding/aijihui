@@ -27,10 +27,12 @@ Page({
           key: 'curUserInfo',
           data: res.data.user,
         })
+        if(res.data.code == 200){
+          wx.switchTab({
+            url: '../Mine/Mine'
+          })
+        }
       }
-    })
-    wx.switchTab({
-      url: '../Mine/Mine'
     })
   },
 
