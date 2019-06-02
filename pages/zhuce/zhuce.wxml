@@ -7,18 +7,18 @@
   
     <view class='section'>
       <text>电话号码：</text>
-      <input type='number' placeholder='请输入电话号码' name="no" value=''/>
+      <input type='number' placeholder='请输入电话号码' name="no" value='' bindblur='getPhoneNumber' />
     </view>
     <view class='section'>
       <text>密码:</text>
-      <input password='true' placeholder='请输入密码' name="pwd" value=''/>
+      <input password='true' placeholder='请输入密码' name="pwd" value='' bindblur='getPassword' />
     </view>
     <view class='section'>
       <text>确认密码:</text>
-      <input password='true' placeholder='请输入密码' name="pwd" value=''/>
+      <input password='true' placeholder='请输入密码' name="pwd" value='' bindblur='getConfirmP'/>
     </view>
     <view class='button'>
-      <button type='primary' bindtap='jumpBtn'>注册会员</button>
+      <button type='primary' bindtap='resgister'>注册会员</button>
     </view>
   </form>
 </view>
