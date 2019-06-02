@@ -1,4 +1,5 @@
 // pages/personinfo/personinfo.js
+const requestUrl = require("../../utils/request.js").requestUrl
 Page({
 
   /**
@@ -35,14 +36,18 @@ Page({
     this.setData({
       iseditor: true
     });
+    wx.getStorage({
+      key: 'curUserInfo',
+      success: function (res) {
     wx.request({
-      url: "http://cx5sm9.natappfree.cc/ajhUserinfo/updateAjhUserinfo",
+      url: requestUrl +"/ajhUserinfo/updateAjhUserinfo",
       method: "POST",
       data: { 
         userName: e.detail.value.userName,
         email: e.detail.value.email,
         birthday: e.detail.value.birthday,
         address: e.detail.value.address,
+        userId: res.data.id +""
       },
       header: {
         contentType: "application/json"
@@ -54,6 +59,8 @@ Page({
           icon: 'success',
           duration: 2000
         })
+      },
+    })
       },
     })
   },
@@ -75,25 +82,34 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    // wx.request({
-    //   url: '',
-    //   data: {
-    //   },
-    //   method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
-    //   // header: {}, // 设置请求的 header  
-    //   header: {
-    //     'Content-Type': 'application/json'
-    //   },
-    //   success: function (res) {
-    //     console.log(res.data)
-    //     that.setData({
-    //       userName: res.data.userName,
-    //       email: res.data.email,
-    //       address: res.data.address,
-    //       birthday: res.data.birthday,      
-    //     })
-    //   }
-    // })
+    var that = this
+    wx.getStorage({
+      key: 'curUserInfo',
+      success: function(res) {
+        wx.request({
+          url: requestUrl + '/ajhUserinfo/getAjhUserInfo',
+          data: {
+            userId: res.data.id
+      },
+          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+          // header: {}, // 设置请求的 header  
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            console.log(res.data)
+            that.setData({
+              userName: res.data.userName,
+              email: res.data.email,
+              address: res.data.address,
+              birthday: res.data.birthday,
+              dates: res.data.birthday
+            })
+          }
+        })
+
+      },
+    })
   },
 
   /**

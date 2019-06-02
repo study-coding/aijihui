@@ -1,4 +1,6 @@
 var app = getApp();
+const requestUrl = require("../../utils/request.js").requestUrl
+let getBase64 = require("../../utils/util.js").getBase64
 // page/component/new-pages/cart/cart.js
 Page({
   data: {
@@ -8,17 +10,62 @@ Page({
     selectAllStatus: true,    // 全选状态，默认全选
     obj: {
       name: "hello"
-    }
+    },
   },
   onShow() {
-    this.setData({
-      hasList: true,
-      carts: [
-        { id: 1, title: '新鲜芹菜 半斤', image: '/image/img/book10.jpg', num: 1, price: 0.01, selected: true },
-        { id: 2, title: '素米 500g', image: '/image/img/book10.jpg', num: 1, price: 0.03, selected: true }
-      ]
-    });
+    var that = this
+    wx.getStorage({
+      key: 'curUserInfo',
+      success: function(res) {
+        console.log('ssss')
+        console.log(res.data.id)
+        wx.request({
+          url: requestUrl + '/ajhCar/listUserShopCar',
+          data: {
+            userId: res.data.id
+          },
+          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT  
+          // header: {}, // 设置请求的 header  
+          header: {
+            'Content-Type': 'application/json'
+          },
+          success: function (res) {
+            if (res.data.length == 0) {
+              that.setData({
+                hasList: false,
+              })
+            }
+            else {
+              that.setData({
+                hasList: true,
+                carts: res.data
+              })
+              console.log('bbbb')
+              console.log(that.data.carts)
+            }
+            console.log('sssssssss')
+            for(var i = 0; i<res.data.length;i++){
+              var url = "carts["+ i +"].url"
+              getBase64(res.data[i].url).then(res => {
+              that.setData({
+                [url]: res
+              })
+              })
+            }
+  
+          }
+        })
+      },
+    })
     this.getTotalPrice();
+  },
+  // 过滤器
+  filter (url) {
+    
+    var result=getBase64(url).then(res => {
+      return res
+    })
+    console.log(result)
   },
   /**
    * 当前商品选中事件

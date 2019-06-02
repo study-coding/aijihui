@@ -10,12 +10,12 @@
             <view class="cart-list" wx:for="{{carts}}" wx:key="{{index}}">
                 <icon wx:if="{{item.selected}}" type="success" color="red" data-index="{{index}}"  class="cart-pro-select" bindtap="selectList"/>
                 <icon wx:else type="circle" class="cart-pro-select" data-index="{{index}}" bindtap="selectList"/>
-                <navigator url="../details/details?id={{item.id}}"><image class="cart-thumb" src="{{item.image}}"></image></navigator>
-                <text class="cart-pro-name">{{item.title}}</text>
-                <text class="cart-pro-price">￥{{item.price}}</text>
+                <navigator url="../details/details?id={{item.id}}"><image class="cart-thumb" src="{{item.url}}"></image></navigator>
+                <text class="cart-pro-name">{{item.productName}}</text>
+                <text class="cart-pro-price">￥{{item.nowPrice}}</text>
                 <view class="cart-count-box">
                 <!-- 存放信息 -->
-                   <text style='font-size:12px'>铲平介绍</text>
+                   <!-- <text style='font-size:12px'>铲平介绍</text> -->
                 </view>
                 <text class="cart-del" bindtap="deleteList" data-index="{{index}}">×</text>
             </view>
